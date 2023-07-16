@@ -12,16 +12,16 @@ pip install mccalcy
 
 ## Usage
 
-First, import the `Calculator` class from the package:
+First, import the package:
 
 ```python
-from mccalcy import Calculator
+from mccalcy import mccalcy
 ```
 
 Create a Calculator instance:
 
 ```python
-calc = Calculator()
+calc = mccalcy.Calculator()
 ```
 
 Perform calculations using the available methods:
