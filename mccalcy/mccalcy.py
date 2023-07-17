@@ -27,7 +27,10 @@ class Calculator:
         Returns:
             None
         """
-        self.memory += num
+        try:
+            self.memory += num
+        except TypeError:
+            print(f"{num} is not a number")
 
     def subtract(self, num: float) -> None:
         """
@@ -39,7 +42,10 @@ class Calculator:
         Returns:
             None
         """
-        self.memory -= num
+        try:
+            self.memory -= num
+        except TypeError:
+            print(f"{num} is not a number")
 
     def multiply(self, num: float) -> None:
         """
@@ -51,31 +57,49 @@ class Calculator:
         Returns:
             None
         """
-        self.memory *= num
+        try:
+            self.memory *= num
+        except TypeError:
+            print(f"{num} is not a number")
 
     def divide(self, num: float) -> None:
         """
-        Divides the memory by the given number.
+            Divides the memory by the given number.
 
-        Args:
-            num: The number to divide by.
+            Args:
+                num: The number to divide by.
 
-        Returns:
-            None
+            Returns:
+                None
+            """
+
+        try:
+            result = self.memory / num
+        except ZeroDivisionError:
+            print("Division by zero error")
+        except TypeError:
+            print(f"{num} is not a number")
+        else:
+            self.memory = result
+
+    def nth_root(self, root_value: int) -> float:
         """
-        self.memory /= num
+            Calculates the nth root of a number.
 
-    def root(self, root_value: float) -> None:
-        """
-        Calculates the nth root of the memory.
+            Args:
+                root_value: The root value.
 
-        Args:
-            root_value: The root value.
+            Returns:
+                The nth root of the number.
+            """
 
-        Returns:
-            None
-        """
-        self.memory **= 1 / root_value
+        if root_value < 1:
+            raise ValueError("The root value must be a positive number")
+
+        try:
+            return self.memory ** (1 / root_value)
+        except TypeError:
+            print(f"{root_value} is not a number")
 
     def reset_memory(self) -> None:
         """
