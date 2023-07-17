@@ -43,7 +43,7 @@ def test_divide() -> None:
 
 def test_nth_root() -> None:
     """
-    Test the root() method.
+    Test the nth_root() method.
     """
     calc = mccalcy.Calculator()
     calc.add(16)
@@ -66,8 +66,9 @@ def test_add_str() -> None:
     Test the add() method with a string argument.
     """
     calc = mccalcy.Calculator()
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError) as exc_info:
         calc.add("hello")
+    assert str(exc_info.value) == "'hello' is not a number"
 
 
 def test_subtract_str() -> None:
@@ -75,8 +76,9 @@ def test_subtract_str() -> None:
     Test the subtract() method with a string argument.
     """
     calc = mccalcy.Calculator()
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError) as exc_info:
         calc.subtract("hello")
+    assert str(exc_info.value) == "'hello' is not a number"
 
 
 def test_multiply_str() -> None:
@@ -84,8 +86,9 @@ def test_multiply_str() -> None:
     Test the multiply() method with a string argument.
     """
     calc = mccalcy.Calculator()
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError) as exc_info:
         calc.multiply("hello")
+    assert str(exc_info.value) == "'hello' is not a number"
 
 
 def test_divide_str() -> None:
@@ -93,18 +96,16 @@ def test_divide_str() -> None:
     Test the divide() method with a string argument.
     """
     calc = mccalcy.Calculator()
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError) as exc_info:
         calc.divide("hello")
+    assert str(exc_info.value) == "'hello' is not a number"
 
 
 def test_nth_root_str() -> None:
     """
-    Test the root() method with a string argument.
+    Test the nth_root() method with a string argument.
     """
     calc = mccalcy.Calculator()
-    with pytest.raises(TypeError):
+    with pytest.raises(ValueError) as exc_info:
         calc.nth_root("hello")
-
-
-if __name__ == "__main__":
-    pytest.main()
+    assert str(exc_info.value) == "could not convert string to float: 'hello'"
