@@ -88,33 +88,32 @@ class Calculator:
         else:
             self.memory = result
 
+    def nth_root(self, root_value: int) -> float:
+        """
+        Calculates the nth root of a number.
 
-def nth_root(self, root_value: int) -> float:
-    """
-    Calculates the nth root of a number.
+        Args:
+            root_value: The root value.
 
-    Args:
-        root_value: The root value.
+        Returns:
+            The nth root of the number.
+        """
+        try:
+            root_value = float(root_value)
+        except TypeError:
+            print(f"{root_value} is not a number")
+            return
 
-    Returns:
-        The nth root of the number.
-    """
-    try:
-        root_value = float(root_value)
-    except TypeError:
-        print(f"{root_value} is not a number")
-        return
+        if root_value < 1:
+            print("n value can't be less than 1")
+            return
 
-    if root_value < 1:
-        print("n value can't be less than 1")
-        return
-
-    try:
-        result = self.memory ** (1 / root_value)
-    except TypeError:
-        print(f"{self.memory} is not a number")
-    else:
-        self.memory = result
+        try:
+            result = self.memory ** (1 / root_value)
+        except TypeError:
+            print(f"{self.memory} is not a number")
+        else:
+            self.memory = result
 
     def reset_memory(self) -> None:
         """
