@@ -103,6 +103,7 @@ class Calculator:
         if root_value < 1:
             # Print an error message if value provided is less than 1.
             print("n value can't be less than 1")
+            return
 
         # Try to calculate the nth root of the number.
         try:
