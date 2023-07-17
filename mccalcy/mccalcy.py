@@ -97,9 +97,11 @@ class Calculator:
             raise ValueError("The root value must be a positive number")
 
         try:
-            self.memory ** (1 / root_value)
+            result = self.memory ** (1 / root_value)
         except TypeError:
             print(f"{root_value} is not a number")
+        else:
+            self.memory = result
 
     def reset_memory(self) -> None:
         """
