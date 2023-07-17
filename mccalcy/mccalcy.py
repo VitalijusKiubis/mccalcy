@@ -76,7 +76,7 @@ class Calculator:
         try:
             result = self.memory / num
         except ZeroDivisionError:
-            print("Division by zero error")
+            print("Can't divide by zero, please select different value")
         except TypeError:
             print(f"{num} is not a number")
         else:
@@ -97,7 +97,7 @@ class Calculator:
             raise ValueError("The root value must be a positive number")
 
         try:
-            return self.memory ** (1 / root_value)
+            self.memory ** (1 / root_value)
         except TypeError:
             print(f"{root_value} is not a number")
 
