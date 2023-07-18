@@ -29,9 +29,9 @@ class Calculator:
         """
         try:
             self.memory += num
-        except TypeError:
+        except TypeError as exc:
             # Print an error message if value is not a number.
-            raise TypeError(f"{num} is not a number")
+            raise TypeError(f"{num} is not a number") from exc
 
     def subtract(self, num: float) -> None:
         """
@@ -45,9 +45,9 @@ class Calculator:
         """
         try:
             self.memory -= num
-        except TypeError:
+        except TypeError as exc:
             # Print an error message if value is not a number.
-            raise TypeError(f"{num} is not a number")
+            raise TypeError(f"{num} is not a number") from exc
 
     def multiply(self, num: float) -> None:
         """
@@ -62,9 +62,9 @@ class Calculator:
 
         try:
             self.memory *= num
-        except TypeError:
+        except TypeError as exc:
             # Print an error message if value is not a number.
-            raise TypeError(f"{num} is not a number")
+            raise TypeError(f"{num} is not a number") from exc
 
     def divide(self, num: float) -> None:
         """
@@ -79,9 +79,9 @@ class Calculator:
 
         try:
             self.memory /= num
-        except (TypeError, ZeroDivisionError):
+        except (TypeError, ZeroDivisionError) as exc:
             # Print an error message if wrong value.
-            raise TypeError(f"Can't divide by {num}")
+            raise TypeError(f"Can't divide by {num}") from exc
 
     def root(self, root_value: int) -> None:
         """
@@ -96,16 +96,16 @@ class Calculator:
 
         try:
             root_value = float(root_value)
-        except (TypeError, ValueError):
-            raise TypeError(f"Invalid value: '{root_value}' is not a number")
+        except (TypeError, ValueError) as exc:
+            raise TypeError(f"'{root_value}' is not a number") from exc
 
         if root_value < 1:
             raise ValueError("Root value must be greater than or equal to 1")
 
         try:
             result = self.memory ** (1 / root_value)
-        except TypeError:
-            raise TypeError(f"Invalid value: '{self.memory}' is not a number")
+        except TypeError as exc:
+            raise TypeError(f"'{self.memory}' is not a number") from exc
 
         self.memory = result
 
