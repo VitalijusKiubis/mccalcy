@@ -83,7 +83,7 @@ class Calculator:
             # Print an error message if wrong value.
             raise TypeError(f"Can't divide by {num}") from exc
 
-    def root(self, root_value: int) -> None:
+    def root(self, root_value: float) -> None:
         """
         Calculates the nth root of a number.
 
