@@ -88,7 +88,7 @@ def test_multiply_str() -> None:
     calc = mccalcy.Calculator()
     with pytest.raises(TypeError) as exc_info:
         calc.multiply("hello")
-    assert str(exc_info.value) == "'hello' is not a number"
+    assert str(exc_info.value) == "hello is not a number"
 
 
 def test_divide_str() -> None:
