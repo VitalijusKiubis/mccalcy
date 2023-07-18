@@ -61,6 +61,7 @@ class Calculator:
         """
 
         try:
+            num = float(num)
             self.memory *= num
         except (TypeError, ValueError) as exc:
             # Print an error message if value is not a number.
