@@ -68,7 +68,7 @@ def test_add_str() -> None:
     calc = mccalcy.Calculator()
     with pytest.raises(TypeError) as exc_info:
         calc.add("hello")
-    assert str(exc_info.value) == "'hello' is not a number"
+    assert str(exc_info.value) == "hello is not a number"
 
 
 def test_subtract_str() -> None:
@@ -78,7 +78,7 @@ def test_subtract_str() -> None:
     calc = mccalcy.Calculator()
     with pytest.raises(TypeError) as exc_info:
         calc.subtract("hello")
-    assert str(exc_info.value) == "'hello' is not a number"
+    assert str(exc_info.value) == "hello is not a number"
 
 
 def test_multiply_str() -> None:
@@ -98,7 +98,7 @@ def test_divide_str() -> None:
     calc = mccalcy.Calculator()
     with pytest.raises(TypeError) as exc_info:
         calc.divide("hello")
-    assert str(exc_info.value) == "'hello' is not a number"
+    assert str(exc_info.value) == "Can't divide by hello"
 
 
 def test_root_str() -> None:
@@ -108,7 +108,7 @@ def test_root_str() -> None:
     calc = mccalcy.Calculator()
     with pytest.raises(TypeError) as exc_info:
         calc.root("hello")
-    assert str(exc_info.value) == "Invalid root value: 'hello' is not a number"
+    assert str(exc_info.value) == "'hello' is not a number"
 
 
 if __name__ == "__main__":
