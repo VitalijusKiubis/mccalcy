@@ -111,5 +111,39 @@ def test_root_str() -> None:
     assert str(exc_info.value) == "'hello' is not a number"
 
 
+def test_root_valid_value() -> None:
+    """
+    Test the root() method with a valid value.
+    """
+    calc = mccalcy.Calculator()
+    calc.add(16)
+    calc.root(2)
+    assert calc.memory == 4
+
+
+def test_root_invalid_value() -> None:
+    """
+    Test the root() method with an invalid value.
+    """
+    calc = mccalcy.Calculator()
+    calc.add(16)
+    with pytest.raises(ValueError) as exc_info:
+        calc.root(0)
+    assert (
+        str(exc_info.value)
+        == "Root value must be greater than or equal to 1"
+    )
+
+
+def test_root_non_numeric_value() -> None:
+    """
+    Test the root() method with a non-numeric value.
+    """
+    calc = mccalcy.Calculator()
+    with pytest.raises(TypeError) as exc_info:
+        calc.root("hello")
+    assert str(exc_info.value) == "'hello' is not a number"
+
+
 if __name__ == "__main__":
     pytest.main()

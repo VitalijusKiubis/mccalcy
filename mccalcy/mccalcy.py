@@ -103,10 +103,7 @@ class Calculator:
         if root_value < 1:
             raise ValueError("Root value must be greater than or equal to 1")
 
-        try:
-            result = self.memory ** (1 / root_value)
-        except TypeError as exc:
-            raise TypeError(f"'{self.memory}' is not a number") from exc
+        result = self.memory ** (1 / root_value)
 
         self.memory = result
 
