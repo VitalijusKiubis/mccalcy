@@ -59,6 +59,7 @@ class Calculator:
         Returns:
             None
         """
+
         try:
             self.memory *= num
         except TypeError:
@@ -76,23 +77,13 @@ class Calculator:
             None
         """
 
-        # Try to calculate the division.
         try:
-            result = self.memory / num
-        except ZeroDivisionError:
-            # Print an error message if user tries to divide by zero.
-            print("Can't divide by zero, please select different value")
-        except TypeError:
-            # Print an error message if value is not a number.
-            raise TypeError(f"{num} is not a number")
-        else:
-            self.memory = result
+            self.memory /= num
+        except (TypeError, ZeroDivisionError):
+            # Print an error message if wrong value.
+            raise TypeError(f"Can't divide by {num}")
 
-<<<<<<< HEAD
-    def nth_root(self, root_value: int) -> None:
-=======
-    def nth_root(self, root_value: int) -> float:
->>>>>>> parent of a5921eb (Added comments)
+    def root(self, root_value: int) -> None:
         """
         Calculates the nth root of a number.
 
@@ -100,9 +91,9 @@ class Calculator:
             root_value: The root value.
 
         Returns:
-<<<<<<< HEAD
             None
         """
+
         try:
             root_value = float(root_value)
         except (TypeError, ValueError):
@@ -117,26 +108,6 @@ class Calculator:
             raise TypeError(f"Invalid value: '{self.memory}' is not a number")
 
         self.memory = result
-=======
-            The nth root of the number.
-        """
-
-        # Check if the root value is less than 1.
-        if root_value < 1:
-            # Print an error message if value provided is less than 1.
-            print("n value can't be less than 1")
-            return
-
-        # Try to calculate the nth root of the number.
-        try:
-            result = self.memory ** (1 / root_value)
-        except TypeError:
-            # Print an error message if value is not a number.
-            print(f"{root_value} is not a number")
-        else:
-            # Set the memory to the result.
-            self.memory = result
->>>>>>> parent of a5921eb (Added comments)
 
     def reset_memory(self) -> None:
         """

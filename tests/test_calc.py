@@ -41,13 +41,13 @@ def test_divide() -> None:
     assert calc.memory == 5
 
 
-def test_nth_root() -> None:
+def test_root() -> None:
     """
     Test the nth_root() method.
     """
     calc = mccalcy.Calculator()
     calc.add(16)
-    calc.nth_root(2)
+    calc.root(2)
     assert calc.memory == 4
 
 
@@ -101,11 +101,15 @@ def test_divide_str() -> None:
     assert str(exc_info.value) == "'hello' is not a number"
 
 
-def test_nth_root_str() -> None:
+def test_root_str() -> None:
     """
-    Test the nth_root() method with a string argument.
+    Test the root() method with a string argument.
     """
     calc = mccalcy.Calculator()
-    with pytest.raises(ValueError) as exc_info:
-        calc.nth_root("hello")
-    assert str(exc_info.value) == "could not convert string to float: 'hello'"
+    with pytest.raises(TypeError) as exc_info:
+        calc.root("hello")
+    assert str(exc_info.value) == "Invalid root value: 'hello' is not a number"
+
+
+if __name__ == "__main__":
+    pytest.main()
